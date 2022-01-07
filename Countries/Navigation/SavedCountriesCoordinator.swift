@@ -24,6 +24,7 @@ class SavedCountriesCoordinator : Coordinator{
             let vc = SavedCountriesViewController(coder: coder)
             let barItem = UITabBarItem(title: "Favorites", image: UIImage(named: "heart"), tag: 1)
             vc?.tabBarItem = barItem
+            vc?.title = "Saved Countries"
             return vc
         }
         navController.pushViewController(vc, animated: true)

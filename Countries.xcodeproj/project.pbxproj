@@ -19,6 +19,7 @@
 		524162C527889429001FEC58 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524162C427889429001FEC58 /* CountryDetailViewController.swift */; };
 		524162C727889D1A001FEC58 /* CountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524162C627889D1A001FEC58 /* CountriesCoordinator.swift */; };
 		524162C927889D2B001FEC58 /* SavedCountriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524162C827889D2B001FEC58 /* SavedCountriesCoordinator.swift */; };
+		524162CE2788F373001FEC58 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524162CD2788F373001FEC58 /* CountryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		524162C427889429001FEC58 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
 		524162C627889D1A001FEC58 /* CountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCoordinator.swift; sourceTree = "<group>"; };
 		524162C827889D2B001FEC58 /* SavedCountriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesCoordinator.swift; sourceTree = "<group>"; };
+		524162CD2788F373001FEC58 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		524162A02788841B001FEC58 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
+				524162CA2788EC72001FEC58 /* ViewController */,
 				524162BB2788846B001FEC58 /* Storyboard */,
 				524162BA2788844F001FEC58 /* System */,
 				524162B927888448001FEC58 /* Navigation */,
@@ -83,9 +86,7 @@
 		524162B527888429001FEC58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				524162C0278893E2001FEC58 /* CountriesViewController.swift */,
-				524162C227889404001FEC58 /* SavedCountriesViewController.swift */,
-				524162C427889429001FEC58 /* CountryDetailViewController.swift */,
+				524162CD2788F373001FEC58 /* CountryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +140,16 @@
 				524162AC2788841D001FEC58 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		524162CA2788EC72001FEC58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				524162C0278893E2001FEC58 /* CountriesViewController.swift */,
+				524162C227889404001FEC58 /* SavedCountriesViewController.swift */,
+				524162C427889429001FEC58 /* CountryDetailViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524162A22788841B001FEC58 /* AppDelegate.swift in Sources */,
+				524162CE2788F373001FEC58 /* CountryCollectionViewCell.swift in Sources */,
 				524162C327889404001FEC58 /* SavedCountriesViewController.swift in Sources */,
 				524162BF278891AD001FEC58 /* AppTabBarController.swift in Sources */,
 				524162C527889429001FEC58 /* CountryDetailViewController.swift in Sources */,
