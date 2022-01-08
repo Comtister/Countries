@@ -11,6 +11,8 @@ class CountriesViewController: UIViewController {
 
     @IBOutlet var countryCollectionView : UICollectionView!
     
+    weak var coordinator : CountriesCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +53,11 @@ extension CountriesViewController : UICollectionViewDelegate , UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("la")
+        
+        collectionView.cellForItem(at: indexPath)?.standartAnim()
+        coordinator?.gotoDetail()
+        
+        
     }
     
 }

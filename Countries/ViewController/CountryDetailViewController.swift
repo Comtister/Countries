@@ -9,6 +9,8 @@ import UIKit
 
 class CountryDetailViewController: UIViewController {
 
+    weak var coordinator : CountryDetailCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

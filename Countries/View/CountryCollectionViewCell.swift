@@ -29,7 +29,6 @@ class CountryCollectionViewCell: UICollectionViewCell {
         return favIconView
     }()
    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.borderWidth = 2
@@ -51,5 +50,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
 }
