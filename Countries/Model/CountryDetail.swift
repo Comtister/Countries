@@ -6,13 +6,27 @@
 //
 
 import Foundation
+import RealmSwift
 
-class CountryDetail : Codable{
+class CountryDetail : Object , Codable{
     
-    var code : String
-    var flagImageUri : String
-    var name : String
-    var wikiDataId : String
+    @Persisted(primaryKey: true) var wikiDataId : String = ""
+    @Persisted var code : String = ""
+    @Persisted var flagImageUri : String = ""
+    @Persisted var name : String = ""
+    
+    override init(){
+        super.init()
+    }
+    
+    func copyValues() -> CountryDetail{
+        let countryDetail = CountryDetail()
+        countryDetail.wikiDataId = self.wikiDataId
+        countryDetail.code = self.code
+        countryDetail.flagImageUri = self.flagImageUri
+        countryDetail.name = self.name
+        return countryDetail
+    }
     
     enum CodingKeys : String , CodingKey{
         case code , flagImageUri , name , wikiDataId

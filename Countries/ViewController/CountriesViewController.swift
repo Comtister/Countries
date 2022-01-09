@@ -36,6 +36,11 @@ class CountriesViewController: UIViewController {
         trigerDataFetch()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        countryCollectionView.reloadData()
+    }
+    
     private func observeViewModel(){
         
         viewModel.countriesState.subscribe(onNext : { [weak self] in
@@ -85,6 +90,7 @@ extension CountriesViewController : UICollectionViewDelegate , UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CountryCell", for: indexPath) as? CountryCollectionViewCell{
             let country = viewModel.countries.data[indexPath.row]
+            cell.favIcon = (viewModel.isSaved(id: country.wikiDataId) ? UIImage(named: "starb") : UIImage(named: "starw"))!
             cell.title = country.name
             return cell
         }

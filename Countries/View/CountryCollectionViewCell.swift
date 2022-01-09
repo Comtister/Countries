@@ -28,6 +28,14 @@ class CountryCollectionViewCell: UICollectionViewCell {
         favIconView.image = UIImage(named: "starw")
         return favIconView
     }()
+    var favIcon : UIImage{
+        get{
+            return favIconView.image ?? UIImage()
+        }
+        set{
+            favIconView.image = newValue
+        }
+    }
    
     override init(frame: CGRect) {
         super.init(frame: frame)

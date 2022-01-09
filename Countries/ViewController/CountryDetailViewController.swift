@@ -21,6 +21,8 @@ class CountryDetailViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    var barButtonItem : UIBarButtonItem!
+    
     required init?(coder: NSCoder , viewModel : CountryDetailViewModel , coordinator : CountryDetailCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -34,6 +36,10 @@ class CountryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        barButtonItem = UIBarButtonItem(image: UIImage(named: "starw"), style: .plain, target: self, action: #selector(action))
+        barButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = barButtonItem
+        
         observeViewModel()
         trigerDataFetch()
         
@@ -44,6 +50,7 @@ class CountryDetailViewController: UIViewController {
         viewModel.countriesDetailState.subscribe(onNext : { [weak self] in
             self?.containerView.isHidden = false
             self?.countryCodeLbl.text = self?.viewModel.countryDetail?.data.code
+            self?.barButtonItem.image = (self?.viewModel.isSaved(id: (self?.viewModel.id)!))! ? UIImage(named: "starb") : UIImage(named: "starw")
             self?.countryImageView.kf.indicatorType = .activity
             self?.countryImageView.kf.setImage(with : URL(string: (self?.viewModel.countryDetail?.data.flagImageUri)!) , options: [.processor(SVGImageProcessor())])
         },onError: { [weak self] error in
@@ -63,6 +70,24 @@ class CountryDetailViewController: UIViewController {
     
     private func trigerDataFetch(){
         viewModel.getDetailData()
+    }
+    
+    @objc func action(){
+        print("da")
+        guard let countryDetail = self.viewModel.countryDetail?.data else {return}
+        print("la")
+        viewModel.changeSaveState(countryDetail: countryDetail).subscribe(onSuccess :{ [weak self] state in
+            switch state{
+                case .saved :
+                self?.barButtonItem.image = UIImage(named: "starb")
+                case .deleted :
+                self?.barButtonItem.image = UIImage(named: "starw")
+            }
+        },onFailure: { [weak self] error in
+            //Handle Error
+            print(error)
+        }).disposed(by: disposeBag)
+        
     }
     
     @IBAction func gotoWebPage(_ sender : Any){

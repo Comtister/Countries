@@ -47,4 +47,10 @@ class CountriesViewModel : NetworkableViewModel{
         
     }
     
+    func isSaved(id : String) -> Bool{
+        let data = DatabaseManager.shared.getById(object: CountryDetail.self, id: id)
+        return data != nil ? true : false
+    }
+    
+    
 }

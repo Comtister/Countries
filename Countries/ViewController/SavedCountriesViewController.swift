@@ -6,16 +6,52 @@
 //
 
 import UIKit
+import RxSwift
 
 class SavedCountriesViewController: UIViewController {
 
     @IBOutlet var savedCountryCollectionView : UICollectionView!
     
+    private let viewModel : SavedCountriesViewModel
+    weak var coordinator : SavedCountriesCoordinator?
+    
+    private let disposeBag = DisposeBag()
+    
+    required init?(coder: NSCoder , coordinator : SavedCountriesCoordinator , viewModel : SavedCountriesViewModel) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
+        observeViewModel()
+        triggerDataFetch()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getDatas()
+    }
+    
+    private func observeViewModel(){
         
+        viewModel.countriesState.subscribe(onNext:{ [weak self] in
+            self?.savedCountryCollectionView.reloadData()
+        },onError: { [weak self] error in
+          //Handle Error
+        }).disposed(by: disposeBag)
+        
+    }
+    
+    private func triggerDataFetch(){
+        viewModel.getDatas()
     }
     
     private func setupCollectionView(){
@@ -40,11 +76,14 @@ class SavedCountriesViewController: UIViewController {
 extension SavedCountriesViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.countries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CountryCell", for: indexPath) as? CountryCollectionViewCell{
+            let country = viewModel.countries[indexPath.row]
+            cell.favIcon = (viewModel.isSaved(id: country.wikiDataId) ? UIImage(named: "starb") : UIImage(named: "starw"))!
+            cell.title = country.name
             return cell
         }
         return UICollectionViewCell()
@@ -52,6 +91,7 @@ extension SavedCountriesViewController : UICollectionViewDelegate , UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.cellForItem(at: indexPath)?.standartAnim()
+        coordinator?.gotoDetail(id: viewModel.countries[indexPath.row].wikiDataId)
     }
     
 }
