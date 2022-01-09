@@ -45,7 +45,9 @@ class SavedCountriesViewController: UIViewController {
         viewModel.countriesState.subscribe(onNext:{ [weak self] in
             self?.savedCountryCollectionView.reloadData()
         },onError: { [weak self] error in
-          //Handle Error
+            self?.showDatabaseErrorDialog(handler: { _ in
+                self?.triggerDataFetch()
+            })
         }).disposed(by: disposeBag)
         
     }

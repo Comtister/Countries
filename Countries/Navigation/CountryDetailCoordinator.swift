@@ -28,7 +28,6 @@ class CountryDetailCoordinator : NSObject , Coordinator , UINavigationController
             let viewModel = CountryDetailViewModel(id: self.id)
             let vc = CountryDetailViewController(coder: coder, viewModel: viewModel, coordinator: self)
             vc?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
-            //vc?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "starw"), style: .plain, target: vc, action: #selector(action))
             vc?.title = "Country Detail"
             return vc
         }
@@ -41,6 +40,10 @@ class CountryDetailCoordinator : NSObject , Coordinator , UINavigationController
         let webPageCoordinator = WebViewCoordinator(navController: self.navController, pageUrl: pageUrl)
         subCoordinators.append(webPageCoordinator)
         webPageCoordinator.start()
+    }
+    
+    func goBackward(){
+        navController.popViewController(animated: true)
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {

@@ -54,7 +54,9 @@ class CountryDetailViewController: UIViewController {
             self?.countryImageView.kf.indicatorType = .activity
             self?.countryImageView.kf.setImage(with : URL(string: (self?.viewModel.countryDetail?.data.flagImageUri)!) , options: [.processor(SVGImageProcessor())])
         },onError: { [weak self] error in
-            self?.showNetworkErrorDialog()
+            self?.showNetworkErrorDialog(handler: { _ in
+                self?.trigerDataFetch()
+            })
         }).disposed(by: disposeBag)
         
         viewModel.loadingState.subscribe(onNext:{ [weak self] state in
@@ -62,7 +64,9 @@ class CountryDetailViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.networkState.subscribe(onNext : { [weak self] state in
-            guard state == true else {self?.showNetworkErrorDialog() ; return}
+            guard state == true else {self?.showNetworkErrorDialog(handler: { _ in
+                self?.trigerDataFetch()
+            }) ; return}
         }).disposed(by: disposeBag)
         
         
@@ -73,9 +77,9 @@ class CountryDetailViewController: UIViewController {
     }
     
     @objc func action(){
-        print("da")
+        
         guard let countryDetail = self.viewModel.countryDetail?.data else {return}
-        print("la")
+       
         viewModel.changeSaveState(countryDetail: countryDetail).subscribe(onSuccess :{ [weak self] state in
             switch state{
                 case .saved :
@@ -84,8 +88,9 @@ class CountryDetailViewController: UIViewController {
                 self?.barButtonItem.image = UIImage(named: "starw")
             }
         },onFailure: { [weak self] error in
-            //Handle Error
-            print(error)
+            self?.showDatabaseErrorDialog { _ in
+                self?.coordinator?.goBackward()
+            }
         }).disposed(by: disposeBag)
         
     }

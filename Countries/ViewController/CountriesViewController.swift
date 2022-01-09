@@ -46,7 +46,10 @@ class CountriesViewController: UIViewController {
         viewModel.countriesState.subscribe(onNext : { [weak self] in
             self?.countryCollectionView.reloadData()
         },onError: { [weak self] error in
-            self?.showNetworkErrorDialog()
+            self?.showNetworkErrorDialog(handler: { _ in
+                print("da")
+                self?.trigerDataFetch()
+            })
         }).disposed(by: disposeBag)
         
         viewModel.loadingState.subscribe(onNext:{ [weak self] state in
@@ -54,7 +57,9 @@ class CountriesViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         viewModel.networkState.subscribe(onNext : { [weak self] state in
-            guard state == true else {self?.showNetworkErrorDialog() ; return}
+            guard state == true else {self?.showNetworkErrorDialog(handler: { _ in
+                self?.trigerDataFetch()
+            }) ; return}
         }).disposed(by: disposeBag)
         
     }

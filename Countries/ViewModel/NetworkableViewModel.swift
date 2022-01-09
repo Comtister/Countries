@@ -24,7 +24,9 @@ class NetworkableViewModel{
     private func listenNetworkStatus(){
         NotificationCenter.default.addObserver(forName: .NetworkStateNotification, object: nil, queue: nil) { notification in
             guard let networkInfo = notification.userInfo as? [String : Bool] else {return}
-            self._networkState.onNext(networkInfo["state"]!)
+            DispatchQueue.main.async {
+                self._networkState.onNext(networkInfo["state"]!)
+            }            
         }
     }
     

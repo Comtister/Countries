@@ -10,15 +10,21 @@ import UIKit
 
 extension UIViewController{
     
-    func showNetworkErrorDialog(){
+    func showNetworkErrorDialog(handler : @escaping (UIAlertAction) -> Void){
         let alertController = UIAlertController(title: "ops", message: "No Internet Connection", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: handler))
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func showServerErrorDialog(){
+    func showServerErrorDialog(handler : @escaping (UIAlertAction) -> Void){
         let alertController = UIAlertController(title: "ops", message: "An Error Occurred", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: handler))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showDatabaseErrorDialog(handler : @escaping (UIAlertAction) -> Void){
+        let alertController = UIAlertController(title: "ops", message: "An Error Occurred", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: handler))
         self.present(alertController, animated: true, completion: nil)
     }
     
