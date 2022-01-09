@@ -34,6 +34,14 @@
 		52B570462789D9E300275870 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B570452789D9E300275870 /* Country.swift */; };
 		52B570482789E21A00275870 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B570472789E21A00275870 /* NetworkMonitor.swift */; };
 		52B5704A2789E32A00275870 /* Notification+NetworkStateNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B570492789E32A00275870 /* Notification+NetworkStateNotification.swift */; };
+		52B5704C278A266600275870 /* NetworkableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5704B278A266600275870 /* NetworkableViewModel.swift */; };
+		52B5704E278A359000275870 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5704D278A359000275870 /* CountriesViewModel.swift */; };
+		52B57050278A3F2300275870 /* ViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5704F278A3F2300275870 /* ViewController+Dialog.swift */; };
+		52B57052278A4FFE00275870 /* CountryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57051278A4FFE00275870 /* CountryDetailViewModel.swift */; };
+		52B57054278A5E6100275870 /* CountryDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57053278A5E6100275870 /* CountryDetailRequest.swift */; };
+		52B57056278A5F3C00275870 /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57055278A5F3C00275870 /* CountryDetail.swift */; };
+		52B57058278A6A6E00275870 /* CountryDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57057278A6A6E00275870 /* CountryDetailResponse.swift */; };
+		52B5705A278A6EAB00275870 /* SVGImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57059278A6EAB00275870 /* SVGImageProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,14 @@
 		52B570452789D9E300275870 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		52B570472789E21A00275870 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		52B570492789E32A00275870 /* Notification+NetworkStateNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+NetworkStateNotification.swift"; sourceTree = "<group>"; };
+		52B5704B278A266600275870 /* NetworkableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkableViewModel.swift; sourceTree = "<group>"; };
+		52B5704D278A359000275870 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
+		52B5704F278A3F2300275870 /* ViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Dialog.swift"; sourceTree = "<group>"; };
+		52B57051278A4FFE00275870 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
+		52B57053278A5E6100275870 /* CountryDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailRequest.swift; sourceTree = "<group>"; };
+		52B57055278A5F3C00275870 /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
+		52B57057278A6A6E00275870 /* CountryDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailResponse.swift; sourceTree = "<group>"; };
+		52B57059278A6EAB00275870 /* SVGImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImageProcessor.swift; sourceTree = "<group>"; };
 		89B24723919484E5575974D4 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
 		A9D12FFAC36172E5E6715C23 /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +165,9 @@
 		524162B627888432001FEC58 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				52B5704B278A266600275870 /* NetworkableViewModel.swift */,
+				52B5704D278A359000275870 /* CountriesViewModel.swift */,
+				52B57051278A4FFE00275870 /* CountryDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,6 +180,9 @@
 				52B570412789D86F00275870 /* CountriesRequest.swift */,
 				52B570432789D98500275870 /* CountriesResponse.swift */,
 				52B570452789D9E300275870 /* Country.swift */,
+				52B57053278A5E6100275870 /* CountryDetailRequest.swift */,
+				52B57055278A5F3C00275870 /* CountryDetail.swift */,
+				52B57057278A6A6E00275870 /* CountryDetailResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +243,7 @@
 				52B570222789974900275870 /* CollectionViewCell+Anim.swift */,
 				52B5702A2789BD0100275870 /* Session+GenericRequest.swift */,
 				52B570492789E32A00275870 /* Notification+NetworkStateNotification.swift */,
+				52B5704F278A3F2300275870 /* ViewController+Dialog.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				52B5702F2789C03C00275870 /* Errors.swift */,
+				52B57059278A6EAB00275870 /* SVGImageProcessor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -406,7 +430,11 @@
 				52B5704A2789E32A00275870 /* Notification+NetworkStateNotification.swift in Sources */,
 				52B570272789B67F00275870 /* NetworkRequest.swift in Sources */,
 				52B5702527899DBB00275870 /* CountryDetailCoordinator.swift in Sources */,
+				52B5705A278A6EAB00275870 /* SVGImageProcessor.swift in Sources */,
+				52B5704E278A359000275870 /* CountriesViewModel.swift in Sources */,
+				52B5704C278A266600275870 /* NetworkableViewModel.swift in Sources */,
 				524162A22788841B001FEC58 /* AppDelegate.swift in Sources */,
+				52B57050278A3F2300275870 /* ViewController+Dialog.swift in Sources */,
 				52B570232789974900275870 /* CollectionViewCell+Anim.swift in Sources */,
 				524162CE2788F373001FEC58 /* CountryCollectionViewCell.swift in Sources */,
 				524162C327889404001FEC58 /* SavedCountriesViewController.swift in Sources */,
@@ -414,8 +442,11 @@
 				524162C527889429001FEC58 /* CountryDetailViewController.swift in Sources */,
 				52B570462789D9E300275870 /* Country.swift in Sources */,
 				524162A42788841B001FEC58 /* SceneDelegate.swift in Sources */,
+				52B57054278A5E6100275870 /* CountryDetailRequest.swift in Sources */,
+				52B57052278A4FFE00275870 /* CountryDetailViewModel.swift in Sources */,
 				52B570442789D98500275870 /* CountriesResponse.swift in Sources */,
 				52B570292789B89900275870 /* NetworkResponse.swift in Sources */,
+				52B57058278A6A6E00275870 /* CountryDetailResponse.swift in Sources */,
 				52B5702B2789BD0100275870 /* Session+GenericRequest.swift in Sources */,
 				52B570482789E21A00275870 /* NetworkMonitor.swift in Sources */,
 				524162C927889D2B001FEC58 /* SavedCountriesCoordinator.swift in Sources */,
@@ -423,6 +454,7 @@
 				52B570302789C03C00275870 /* Errors.swift in Sources */,
 				52B570422789D86F00275870 /* CountriesRequest.swift in Sources */,
 				524162C727889D1A001FEC58 /* CountriesCoordinator.swift in Sources */,
+				52B57056278A5F3C00275870 /* CountryDetail.swift in Sources */,
 				524162C1278893E2001FEC58 /* CountriesViewController.swift in Sources */,
 				524162BD27888514001FEC58 /* Coordinator.swift in Sources */,
 			);

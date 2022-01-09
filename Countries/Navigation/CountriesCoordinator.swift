@@ -22,8 +22,8 @@ class CountriesCoordinator : NSObject, Coordinator , UINavigationControllerDeleg
     func start() {
         navController.delegate = self
         let vc = storyboard.instantiateViewController(identifier: "Countries") { coder in
-            let vc = CountriesViewController(coder: coder)
-            vc?.coordinator = self
+            let viewModel = CountriesViewModel()
+            let vc = CountriesViewController(coder: coder, viewModel: viewModel, coordinator: self)
             vc?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
             vc?.title = "Countries"
             return vc
@@ -31,8 +31,8 @@ class CountriesCoordinator : NSObject, Coordinator , UINavigationControllerDeleg
         navController.pushViewController(vc, animated: true)
     }
     
-    func gotoDetail(){
-        let detailCoordinator = CountryDetailCoordinator(navController: navController)
+    func gotoDetail(id : String){
+        let detailCoordinator = CountryDetailCoordinator(id : id , navController: navController)
         appendSubCoordinator(coordinator: detailCoordinator)
         detailCoordinator.start()
     }

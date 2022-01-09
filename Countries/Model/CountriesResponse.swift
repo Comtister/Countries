@@ -11,4 +11,8 @@ class CountriesResponse : Codable{
     
     var data : [Country]
     
+    init(){
+        self.data = []
+    }
+    
 }

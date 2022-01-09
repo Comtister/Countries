@@ -21,12 +21,16 @@ class NetworkServiceManager{
     
     func sendRequest<T : Codable>(request : NetworkRequest , completion : @escaping (Result<T,NetworkServiceError>) -> Void){
         
+        if !NetworkMonitor.networkMonitor.isConnected {completion(Result.failure(NetworkServiceError.NetworkError)) ; return}
+        
         do{
             try session.request(request: request).validate(statusCode: 200...300).response(queue: .global(qos: .userInitiated), completionHandler: { response in
                 switch response.result{
                 case .success(let data) :
                     guard let data = data else {completion(Result.failure(NetworkServiceError.DataNotValid)) ; return}
+                    
                     let responseModel = NetworkResponse<T>(data: data)
+                    
                     guard let object = responseModel.object else {completion(Result.failure(NetworkServiceError.DataParsingError)) ; return}
                     completion(Result.success(object))
                     
