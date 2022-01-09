@@ -42,6 +42,8 @@
 		52B57056278A5F3C00275870 /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57055278A5F3C00275870 /* CountryDetail.swift */; };
 		52B57058278A6A6E00275870 /* CountryDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57057278A6A6E00275870 /* CountryDetailResponse.swift */; };
 		52B5705A278A6EAB00275870 /* SVGImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B57059278A6EAB00275870 /* SVGImageProcessor.swift */; };
+		52B6EF2D278AEE8A0090011C /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6EF2C278AEE8A0090011C /* WebViewCoordinator.swift */; };
+		52B6EF2F278AEF150090011C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6EF2E278AEF150090011C /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		52B57055278A5F3C00275870 /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
 		52B57057278A6A6E00275870 /* CountryDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailResponse.swift; sourceTree = "<group>"; };
 		52B57059278A6EAB00275870 /* SVGImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImageProcessor.swift; sourceTree = "<group>"; };
+		52B6EF2C278AEE8A0090011C /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
+		52B6EF2E278AEF150090011C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		89B24723919484E5575974D4 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
 		A9D12FFAC36172E5E6715C23 /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +207,7 @@
 				524162C627889D1A001FEC58 /* CountriesCoordinator.swift */,
 				524162C827889D2B001FEC58 /* SavedCountriesCoordinator.swift */,
 				52B5702427899DBB00275870 /* CountryDetailCoordinator.swift */,
+				52B6EF2C278AEE8A0090011C /* WebViewCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				524162C0278893E2001FEC58 /* CountriesViewController.swift */,
 				524162C227889404001FEC58 /* SavedCountriesViewController.swift */,
 				524162C427889429001FEC58 /* CountryDetailViewController.swift */,
+				52B6EF2E278AEF150090011C /* WebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				524162C527889429001FEC58 /* CountryDetailViewController.swift in Sources */,
 				52B570462789D9E300275870 /* Country.swift in Sources */,
 				524162A42788841B001FEC58 /* SceneDelegate.swift in Sources */,
+				52B6EF2F278AEF150090011C /* WebViewController.swift in Sources */,
 				52B57054278A5E6100275870 /* CountryDetailRequest.swift in Sources */,
 				52B57052278A4FFE00275870 /* CountryDetailViewModel.swift in Sources */,
 				52B570442789D98500275870 /* CountriesResponse.swift in Sources */,
@@ -454,6 +461,7 @@
 				52B570302789C03C00275870 /* Errors.swift in Sources */,
 				52B570422789D86F00275870 /* CountriesRequest.swift in Sources */,
 				524162C727889D1A001FEC58 /* CountriesCoordinator.swift in Sources */,
+				52B6EF2D278AEE8A0090011C /* WebViewCoordinator.swift in Sources */,
 				52B57056278A5F3C00275870 /* CountryDetail.swift in Sources */,
 				524162C1278893E2001FEC58 /* CountriesViewController.swift in Sources */,
 				524162BD27888514001FEC58 /* Coordinator.swift in Sources */,

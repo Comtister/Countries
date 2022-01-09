@@ -64,5 +64,9 @@ class CountryDetailViewController: UIViewController {
     private func trigerDataFetch(){
         viewModel.getDetailData()
     }
+    
+    @IBAction func gotoWebPage(_ sender : Any){
+        coordinator?.gotoWebPage(pageUrl: (self.viewModel.countryDetail?.data.wikiDataId)!)
+    }
 
 }

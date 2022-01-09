@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CountryDetailCoordinator : Coordinator{
+class CountryDetailCoordinator : NSObject , Coordinator , UINavigationControllerDelegate{
     
     var subCoordinators: [Coordinator] = []
     
@@ -36,7 +36,25 @@ class CountryDetailCoordinator : Coordinator{
         
     }
     
+    func gotoWebPage(pageUrl : String){
+        let webPageCoordinator = WebViewCoordinator(navController: self.navController, pageUrl: pageUrl)
+        subCoordinators.append(webPageCoordinator)
+        webPageCoordinator.start()
+    }
     
-    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let workVC = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+        }
+        
+        if navigationController.viewControllers.contains(workVC){
+            return
+        }
+        
+        if let detailCountryVC = workVC as? WebViewController{
+            removeSubCoordinator(coordinator: detailCountryVC.coordinator)
+        }
+        
+    }
     
 }

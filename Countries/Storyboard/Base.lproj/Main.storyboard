@@ -137,6 +137,9 @@
                                         <rect key="frame" x="8" y="364" width="159.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="For More Information"/>
+                                        <connections>
+                                            <action selector="gotoWebPage:" destination="A6L-kA-vgP" eventType="touchUpInside" id="hTm-Of-gj0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,6 +181,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2z-NU-k3O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="442.02898550724643" y="1010.4910714285713"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="23G-sd-9lq">
+            <objects>
+                <viewController storyboardIdentifier="WebView" id="THe-iR-02f" customClass="WebViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KQg-N0-xjz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VKj-Yt-C0v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Tt-Ed-Wll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="1010"/>
         </scene>
     </scenes>
     <resources>
