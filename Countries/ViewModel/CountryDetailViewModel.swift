@@ -43,7 +43,6 @@ class CountryDetailViewModel : NetworkableViewModel{
                     self?._loadingState.onNext(false)
                     self?._countriesDetailState.onNext(())
                 case .failure(let error):
-                    print(error)
                     self?._loadingState.onNext(false)
                     self?._countriesDetailState.onError(error)
                 }

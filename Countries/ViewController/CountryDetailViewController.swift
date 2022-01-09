@@ -45,8 +45,7 @@ class CountryDetailViewController: UIViewController {
             self?.containerView.isHidden = false
             self?.countryCodeLbl.text = self?.viewModel.countryDetail?.data.code
             self?.countryImageView.kf.indicatorType = .activity
-            print(self?.viewModel.countryDetail?.data.flagImageUri)
-            self?.countryImageView.kf.setImage(with : URL(string: "\(self?.viewModel.countryDetail?.data.flagImageUri)") , options: [.processor(SVGImageProcessor())])
+            self?.countryImageView.kf.setImage(with : URL(string: (self?.viewModel.countryDetail?.data.flagImageUri)!) , options: [.processor(SVGImageProcessor())])
         },onError: { [weak self] error in
             self?.showNetworkErrorDialog()
         }).disposed(by: disposeBag)
