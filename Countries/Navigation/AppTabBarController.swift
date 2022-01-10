@@ -20,8 +20,19 @@ class AppTabBarController : UITabBarController{
         savedCountriesCoordinator.start()
         
         viewControllers = [countriesCoordinator.navController , savedCountriesCoordinator.navController]
-        tabBar.backgroundColor = .gray
-        tabBar.tintColor = .white
+        
+        let apperance = UITabBarAppearance()
+        apperance.configureWithOpaqueBackground()
+        apperance.backgroundColor = .lightGray
+        apperance.stackedLayoutAppearance.normal.iconColor = .black
+        apperance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        apperance.stackedLayoutAppearance.selected.iconColor = .white
+        apperance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        tabBar.standardAppearance = apperance
+        tabBar.scrollEdgeAppearance = apperance
+        
     }
+    
     
 }

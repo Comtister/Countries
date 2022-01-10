@@ -38,7 +38,6 @@ class CountriesViewModel : NetworkableViewModel{
                         self?._countriesState.onNext(())
                         self?._loadingState.onNext(false)
                     case .failure(let error):
-                        print("la")
                         self?._countriesState.onError(error)
                         self?._loadingState.onNext(false)
                     }

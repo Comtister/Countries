@@ -16,6 +16,11 @@ class SavedCountriesCoordinator : Coordinator{
     
     init(navController : UINavigationController){
         self.navController = navController
+        let navImage = UIImage(named: "backward")
+        self.navController.navigationBar.backIndicatorImage = navImage
+        self.navController.navigationBar.tintColor = .black
+        self.navController.navigationBar.backIndicatorTransitionMaskImage = navImage
+        self.navController.navigationBar.backItem?.title = ""
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
