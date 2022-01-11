@@ -13,3 +13,7 @@ The project is developed with MVVM-C architecture. Model classes operate busines
 - Generic network request and response
 - Extensions
 - Custom view objects
+
+
+https://user-images.githubusercontent.com/34386489/148861870-20844bea-f701-4101-b262-827250b2e744.mp4
+
