@@ -20,7 +20,6 @@ class SavedCountriesCoordinator : Coordinator{
         self.navController.navigationBar.backIndicatorImage = navImage
         self.navController.navigationBar.tintColor = .black
         self.navController.navigationBar.backIndicatorTransitionMaskImage = navImage
-        self.navController.navigationBar.backItem?.title = ""
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
@@ -31,6 +30,7 @@ class SavedCountriesCoordinator : Coordinator{
             let barItem = UITabBarItem(title: "Favorites", image: UIImage(named: "heart"), tag: 1)
             vc?.tabBarItem = barItem
             vc?.title = "Saved Countries"
+            vc?.navigationItem.backButtonTitle = ""
             return vc
         }
         navController.pushViewController(vc, animated: true)

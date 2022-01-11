@@ -15,6 +15,9 @@ class CountryDetailViewController: UIViewController {
     @IBOutlet var countryCodeLbl : UILabel!
     @IBOutlet var containerView : UIView!
     @IBOutlet var activityIndicator : UIActivityIndicatorView!
+    @IBOutlet var webBtn : UIView!
+    
+    private let webBtnGesture = UITapGestureRecognizer()
     
     private var viewModel : CountryDetailViewModel
     weak var coordinator : CountryDetailCoordinator?
@@ -39,6 +42,9 @@ class CountryDetailViewController: UIViewController {
         barButtonItem = UIBarButtonItem(image: UIImage(named: "starw"), style: .plain, target: self, action: #selector(action))
         barButtonItem.tintColor = .black
         navigationItem.rightBarButtonItem = barButtonItem
+        
+        webBtnGesture.addTarget(self, action: #selector(gotoWebPage))
+        webBtn.addGestureRecognizer(webBtnGesture)
         
         observeViewModel()
         trigerDataFetch()
@@ -95,7 +101,7 @@ class CountryDetailViewController: UIViewController {
         
     }
     
-    @IBAction func gotoWebPage(_ sender : Any){
+    @objc func gotoWebPage(){
         coordinator?.gotoWebPage(pageUrl: (self.viewModel.countryDetail?.data.wikiDataId)!)
     }
 

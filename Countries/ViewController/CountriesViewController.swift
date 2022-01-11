@@ -47,7 +47,7 @@ class CountriesViewController: UIViewController {
             self?.countryCollectionView.reloadData()
         },onError: { [weak self] error in
             self?.showNetworkErrorDialog(handler: { _ in
-                print("da")
+                self?.observeViewModel()
                 self?.trigerDataFetch()
             })
         }).disposed(by: disposeBag)

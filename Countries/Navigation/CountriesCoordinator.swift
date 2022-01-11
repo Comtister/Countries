@@ -16,6 +16,10 @@ class CountriesCoordinator : NSObject, Coordinator , UINavigationControllerDeleg
     
     init(navController : UINavigationController){
         self.navController = navController
+        let navImage = UIImage(named: "backward")
+        self.navController.navigationBar.backIndicatorImage = navImage
+        self.navController.navigationBar.tintColor = .black
+        self.navController.navigationBar.backIndicatorTransitionMaskImage = navImage
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
@@ -26,6 +30,7 @@ class CountriesCoordinator : NSObject, Coordinator , UINavigationControllerDeleg
             let vc = CountriesViewController(coder: coder, viewModel: viewModel, coordinator: self)
             vc?.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
             vc?.title = "Countries"
+            vc?.navigationItem.backButtonTitle = ""
             return vc
         }
         navController.pushViewController(vc, animated: true)
